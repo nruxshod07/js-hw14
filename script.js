@@ -83,10 +83,8 @@ for (let company of companies) {
     company.profit = 0
     for (let exp of company.expenses) {
         company.expensesPerMonth += exp.total / 12
-        totalExpenses = ((company.budget / 100 * company.tax) / 12 + company.expensesPerMonth)
-        company.profit = (company.budget / 12) - totalExpenses
-        company.profit = Math.round(company.profit)
-        totalExpenses = Math.round(totalExpenses)
+        totalExpenses = Math.round((company.budget / 100 * company.tax) / 12 + company.expensesPerMonth)
+        company.profit = Math.round((company.budget / 12) - totalExpenses)
         company.expensesPerMonth = Math.round(company.expensesPerMonth)
     }
     if (company.profit > 0) {
